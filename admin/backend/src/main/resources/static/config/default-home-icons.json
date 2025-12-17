@@ -1,0 +1,52 @@
+{
+  "title": "首页图标配置",
+  "description": "用于网站首页展示的4个特色图标",
+  "icons": [
+    {
+      "position": 1,
+      "title": "COMPANY",
+      "description": "展示公司或团队相关图标",
+      "iconType": "icon-company",
+      "defaultIcon": "/images/default-icons/company.png",
+      "customIcon": "/uploads/icons/custom-company-icon.png",
+      "enabled": true
+    },
+    {
+      "position": 2,
+      "title": "TEAM",
+      "description": "展示团队或人员相关图标",
+      "iconType": "icon-team",
+      "defaultIcon": "/images/default-icons/team.png",
+      "customIcon": "/uploads/icons/custom-team-icon.png",
+      "enabled": true
+    },
+    {
+      "position": 3,
+      "title": "PRICES",
+      "description": "展示价格或成本相关图标",
+      "iconType": "icon-prices",
+      "defaultIcon": "/images/default-icons/prices.png",
+      "customIcon": "/uploads/icons/custom-prices-icon.png",
+      "enabled": true
+    },
+    {
+      "position": 4,
+      "title": "QUALITY",
+      "description": "展示质量或认证相关图标",
+      "iconType": "icon-quality",
+      "defaultIcon": "/images/default-icons/quality.png",
+      "customIcon": "/uploads/icons/custom-quality-icon.png",
+      "enabled": true
+    }
+  ],
+  "displayOptions": {
+    "gridColumns": 4,
+    "showTitles": true,
+    "showDescriptions": false,
+    "borderRadius": 8,
+    "padding": 16,
+    "gap": 24
+  },
+  "version": "1.0.0",
+  "lastUpdated": "2025-11-29"
+}

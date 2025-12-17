@@ -1,0 +1,36 @@
+-- 插入示例公司联系方式数据
+INSERT INTO company_contact (
+    address_cn,
+    address_en,
+    phone,
+    fax,
+    email,
+    website_url,
+    contact_person_cn,
+    contact_person_en,
+    wechat,
+    whatsapp,
+    qq,
+    status,
+    created_by,
+    updated_by,
+    create_time,
+    update_time
+) VALUES (
+    '北京市朝阳区建国门外大街1号国贸大厦A座15层',
+    '1st Floor, Block A, China World Tower, 1 Jianguomenwai Street, Chaoyang District, Beijing',
+    '+86-10-88888888',
+    '+86-10-88888889',
+    'contact@company.com',
+    'https://www.company.com',
+    '张经理',
+    'Manager Zhang',
+    'company_wechat',
+    '+86-13800138000',
+    '123456789',
+    1,
+    37,
+    37,
+    NOW(),
+    NOW()
+);

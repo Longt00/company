@@ -1,0 +1,361 @@
+/**
+ * 简单的文字颜色控制系统
+ * 支持独立的文字段落颜色控制
+ */
+
+:root {
+  /* 文字颜色变量 - 可通过 JavaScript 动态修改 */
+  --color-primary: #333333;
+  --color-secondary: #666666;
+  --color-muted: #999999;
+  --color-link: #1976d2;
+  --color-accent: #ff6a00;
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+  --color-danger: #dc3545;
+  --color-info: #17a2b8;
+}
+
+/* 基础文字颜色类 */
+.text-primary {
+  color: var(--color-primary) !important;
+}
+
+.text-secondary {
+  color: var(--color-secondary) !important;
+}
+
+.text-muted {
+  color: var(--color-muted) !important;
+}
+
+.text-link {
+  color: var(--color-link) !important;
+}
+
+.text-accent {
+  color: var(--color-accent) !important;
+}
+
+.text-success {
+  color: var(--color-success) !important;
+}
+
+.text-warning {
+  color: var(--color-warning) !important;
+}
+
+.text-danger {
+  color: var(--color-danger) !important;
+}
+
+.text-info {
+  color: var(--color-info) !important;
+}
+
+/* 链接样式 */
+a.text-primary:hover,
+a.text-primary:focus {
+  color: var(--color-primary);
+  filter: brightness(0.8);
+}
+
+a.text-secondary:hover,
+a.text-secondary:focus {
+  color: var(--color-secondary);
+  filter: brightness(0.8);
+}
+
+a.text-link:hover,
+a.text-link:focus {
+  color: var(--color-link);
+  filter: brightness(0.8);
+  text-decoration: underline;
+}
+
+a.text-accent:hover,
+a.text-accent:focus {
+  color: var(--color-accent);
+  filter: brightness(0.8);
+}
+
+/* 段落文字颜色 */
+p.text-primary,
+.paragraph-primary {
+  color: var(--color-primary);
+}
+
+p.text-secondary,
+.paragraph-secondary {
+  color: var(--color-secondary);
+}
+
+p.text-muted,
+.paragraph-muted {
+  color: var(--color-muted);
+}
+
+/* 标题文字颜色 */
+h1.text-primary,
+h2.text-primary,
+h3.text-primary,
+h4.text-primary,
+h5.text-primary,
+h6.text-primary {
+  color: var(--color-primary);
+}
+
+h1.text-secondary,
+h2.text-secondary,
+h3.text-secondary,
+h4.text-secondary,
+h5.text-secondary,
+h6.text-secondary {
+  color: var(--color-secondary);
+}
+
+/* 列表文字颜色 */
+ul.text-primary,
+ol.text-primary,
+li.text-primary {
+  color: var(--color-primary);
+}
+
+ul.text-secondary,
+ol.text-secondary,
+li.text-secondary {
+  color: var(--color-secondary);
+}
+
+/* 表单元素文字颜色 */
+.form-control.text-primary {
+  color: var(--color-primary);
+}
+
+.form-control.text-secondary {
+  color: var(--color-secondary);
+}
+
+.form-control::placeholder {
+  color: var(--color-muted);
+}
+
+/* 按钮文字颜色 */
+.btn.text-primary {
+  color: var(--color-primary);
+}
+
+.btn.text-secondary {
+  color: var(--color-secondary);
+}
+
+.btn-link.text-primary {
+  color: var(--color-link);
+}
+
+.btn-link.text-secondary {
+  color: var(--color-secondary);
+}
+
+/* 表格文字颜色 */
+.table.text-primary {
+  color: var(--color-primary);
+}
+
+.table th.text-primary,
+.table td.text-primary {
+  color: var(--color-primary);
+}
+
+.table th.text-secondary,
+.table td.text-secondary {
+  color: var(--color-secondary);
+}
+
+.table th.text-muted,
+.table td.text-muted {
+  color: var(--color-muted);
+}
+
+/* 卡片文字颜色 */
+.card.text-primary .card-title,
+.card.text-primary .card-text {
+  color: var(--color-primary);
+}
+
+.card.text-secondary .card-title,
+.card.text-secondary .card-text {
+  color: var(--color-secondary);
+}
+
+.card.text-muted .card-title,
+.card.text-muted .card-text {
+  color: var(--color-muted);
+}
+
+/* 导航文字颜色 */
+.navbar.text-primary .navbar-brand,
+.navbar.text-primary .nav-link {
+  color: var(--color-primary);
+}
+
+.navbar.text-secondary .navbar-brand,
+.navbar.text-secondary .nav-link {
+  color: var(--color-secondary);
+}
+
+/* 代码文字颜色 */
+code.text-primary {
+  color: var(--color-primary);
+}
+
+code.text-secondary {
+  color: var(--color-secondary);
+}
+
+pre.text-primary {
+  color: var(--color-primary);
+}
+
+pre.text-secondary {
+  color: var(--color-secondary);
+}
+
+/* 警告框文字颜色 */
+.alert.text-primary {
+  color: var(--color-primary);
+}
+
+.alert.text-secondary {
+  color: var(--color-secondary);
+}
+
+/* 徽章文字颜色 */
+.badge.text-primary {
+  color: var(--color-primary);
+}
+
+.badge.text-secondary {
+  color: var(--color-secondary);
+}
+
+/* 进度条文字颜色 */
+.progress-bar.text-primary {
+  color: var(--color-primary);
+}
+
+.progress-bar.text-secondary {
+  color: var(--color-secondary);
+}
+
+/* 分页文字颜色 */
+.pagination.text-primary .page-link {
+  color: var(--color-primary);
+}
+
+.pagination.text-secondary .page-link {
+  color: var(--color-secondary);
+}
+
+/* 面包屑文字颜色 */
+.breadcrumb.text-primary .breadcrumb-item {
+  color: var(--color-primary);
+}
+
+.breadcrumb.text-secondary .breadcrumb-item {
+  color: var(--color-secondary);
+}
+
+/* 状态文字颜色 */
+.status-online {
+  color: var(--color-success) !important;
+}
+
+.status-offline {
+  color: var(--color-muted) !important;
+}
+
+.status-error {
+  color: var(--color-danger) !important;
+}
+
+.status-warning {
+  color: var(--color-warning) !important;
+}
+
+/* 重要性文字颜色 */
+.text-important {
+  color: var(--color-primary) !important;
+  font-weight: 600;
+}
+
+.text-emphasis {
+  color: var(--color-accent) !important;
+  font-weight: 600;
+}
+
+.text-subtle {
+  color: var(--color-muted) !important;
+  font-style: italic;
+}
+
+/* 响应式文字颜色 */
+@media (max-width: 768px) {
+  .mobile-text-primary {
+    color: var(--color-primary) !important;
+  }
+
+  .mobile-text-secondary {
+    color: var(--color-secondary) !important;
+  }
+
+  .mobile-text-muted {
+    color: var(--color-muted) !important;
+  }
+}
+
+/* 主题文字颜色组合类 */
+.theme-light {
+  --color-primary: #333333;
+  --color-secondary: #666666;
+  --color-muted: #999999;
+  --color-link: #1976d2;
+  --color-accent: #ff6a00;
+}
+
+.theme-dark {
+  --color-primary: #ffffff;
+  --color-secondary: #cccccc;
+  --color-muted: #888888;
+  --color-link: #64b5f6;
+  --color-accent: #ff9500;
+}
+
+.theme-blue {
+  --color-primary: #1565c0;
+  --color-secondary: #42a5f5;
+  --color-muted: #90caf9;
+  --color-link: #0d47a1;
+  --color-accent: #ff6f00;
+}
+
+.theme-green {
+  --color-primary: #2e7d32;
+  --color-secondary: #66bb6a;
+  --color-muted: #a5d6a7;
+  --color-link: #1b5e20;
+  --color-accent: #ff8f00;
+}
+
+/* 动画过渡 */
+.text-primary,
+.text-secondary,
+.text-muted,
+.text-link,
+.text-accent,
+.text-success,
+.text-warning,
+.text-danger,
+.text-info {
+  transition: color 0.3s ease;
+}

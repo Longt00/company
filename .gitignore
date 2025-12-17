@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Video files
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.webm
+*.mkv
+*.m4v
+*.3gp
+*.ogv

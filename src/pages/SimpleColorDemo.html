@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单文字颜色管理演示</title>
+    <link rel="stylesheet" href="../styles/variables.css">
+    <link rel="stylesheet" href="../styles/textColors.css">
+    <style>
+        body {
+            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 28px;
+        }
+
+        .header p {
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            display: flex;
+            min-height: 600px;
+        }
+
+        .sidebar {
+            width: 320px;
+            background: #f8f9fa;
+            border-right: 1px solid #e9ecef;
+            padding: 20px;
+        }
+
+        .content-area {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .demo-section {
+            margin-bottom: 40px;
+        }
+
+        .demo-section h2 {
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            font-size: 24px;
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: 8px;
+        }
+
+        .color-panel {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .preset-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .preset-btn {
+            padding: 10px;
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .preset-btn:hover {
+            background: #e9ecef;
+            border-color: var(--color-accent);
+        }
+
+        .preset-btn.active {
+            background: var(--color-accent);
+            color: white;
+            border-color: var(--color-accent);
+        }
+
+        .color-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .color-control {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .color-control label {
+            flex: 1;
+            font-size: 14px;
+            color: var(--color-primary);
+        }
+
+        .color-input {
+            width: 50px;
+            height: 35px;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+        }
+
+        .color-input:hover {
+            border-color: var(--color-accent);
+        }
+
+        .color-text {
+            width: 80px;
+            padding: 6px;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            font-size: 12px;
+            font-family: monospace;
+        }
+
+        .text-samples {
+            display: grid;
+            gap: 20px;
+        }
+
+        .sample-card {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid var(--color-accent);
+        }
+
+        .sample-card h3 {
+            margin-top: 0;
+            color: var(--color-primary);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn.primary {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .action-btn.secondary {
+            background: var(--color-secondary);
+            color: white;
+        }
+
+        .action-btn.accent {
+            background: var(--color-accent);
+            color: white;
+        }
+
+        .action-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .component-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .component-card {
+            padding: 15px;
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+        }
+
+        .component-card h4 {
+            color: var(--color-primary);
+            margin-top: 0;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .table th,
+        .table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+            color: var(--color-primary);
+        }
+
+        .table th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #e9ecef;
+            }
+
+            .preset-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .component-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="text-primary">简单文字颜色管理演示</h1>
+            <p class="text-secondary">为每个文字段落提供独立的颜色控制</p>
+        </div>
+
+        <div class="main-content">
+            <!-- 侧边栏颜色控制面板 -->
+            <div class="sidebar">
+                <div class="color-panel">
+                    <h3 class="text-primary">颜色控制</h3>
+
+                    <!-- 预设主题 -->
+                    <div class="preset-buttons">
+                        <button class="preset-btn active" onclick="applyPreset('default')">默认</button>
+                        <button class="preset-btn" onclick="applyPreset('dark')">深色</button>
+                        <button class="preset-btn" onclick="applyPreset('blue')">蓝色</button>
+                        <button class="preset-btn" onclick="applyPreset('green')">绿色</button>
+                    </div>
+
+                    <!-- 自定义颜色控制 -->
+                    <div class="color-controls">
+                        <div class="color-control">
+                            <label>主要文字</label>
+                            <input type="color" id="color-primary" class="color-input" value="#333333" onchange="updateColor('primary', this.value)">
+                            <input type="text" class="color-text" value="#333333" onchange="updateColor('primary', this.value)">
+                        </div>
+
+                        <div class="color-control">
+                            <label>次要文字</label>
+                            <input type="color" id="color-secondary" class="color-input" value="#666666" onchange="updateColor('secondary', this.value)">
+                            <input type="text" class="color-text" value="#666666" onchange="updateColor('secondary', this.value)">
+                        </div>
+
+                        <div class="color-control">
+                            <label>弱化文字</label>
+                            <input type="color" id="color-muted" class="color-input" value="#999999" onchange="updateColor('muted', this.value)">
+                            <input type="text" class="color-text" value="#999999" onchange="updateColor('muted', this.value)">
+                        </div>
+
+                        <div class="color-control">
+                            <label>链接颜色</label>
+                            <input type="color" id="color-link" class="color-input" value="#1976d2" onchange="updateColor('link', this.value)">
+                            <input type="text" class="color-text" value="#1976d2" onchange="updateColor('link', this.value)">
+                        </div>
+
+                        <div class="color-control">
+                            <label>强调颜色</label>
+                            <input type="color" id="color-accent" class="color-input" value="#ff6a00" onchange="updateColor('accent', this.value)">
+                            <input type="text" class="color-text" value="#ff6a00" onchange="updateColor('accent', this.value)">
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="action-btn secondary" onclick="resetColors()">重置默认</button>
+                        <button class="action-btn primary" onclick="saveColors()">保存配置</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 主内容区域 -->
+            <div class="content-area">
+                <!-- 文字颜色演示 -->
+                <div class="demo-section">
+                    <h2>文字颜色演示</h2>
+                    <div class="text-samples">
+                        <div class="sample-card">
+                            <h3>主要文字</h3>
+                            <p class="text-primary">这是主要文字颜色示例。通常用于文章正文、重要标题和需要突出显示的内容。主要文字应该具有良好的可读性和对比度。</p>
+                        </div>
+
+                        <div class="sample-card">
+                            <h3>次要文字</h3>
+                            <p class="text-secondary">这是次要文字颜色示例。通常用于副标题、说明文字和辅助信息。次要文字的对比度可以稍低，但仍需保持良好的可读性。</p>
+                        </div>
+
+                        <div class="sample-card">
+                            <h3>弱化文字</h3>
+                            <p class="text-muted">这是弱化文字颜色示例。通常用于提示信息、时间戳、标签和不重要的内容。弱化文字应该不那么显眼，但仍然可读。</p>
+                        </div>
+
+                        <div class="sample-card">
+                            <h3>链接文字</h3>
+                            <p>
+                                <a href="#" class="text-link">这是一个链接示例</a>
+                                链接应该有明显的识别性，同时保持与整体设计的一致性。
+                                <a href="#" class="text-link">另一个链接</a>
+                            </p>
+                        </div>
+
+                        <div class="sample-card">
+                            <h3>强调文字</h3>
+                            <p class="text-accent">这是强调色文字示例。用于突出重要信息、警告、操作按钮等需要用户特别注意的内容。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 组件演示 -->
+                <div class="demo-section">
+                    <h2>组件颜色演示</h2>
+                    <div class="component-showcase">
+                        <div class="component-card">
+                            <h4>表单组件</h4>
+                            <input type="text" class="form-control" placeholder="输入框示例">
+                            <select class="form-control">
+                                <option>选择框示例</option>
+                                <option>选项1</option>
+                                <option>选项2</option>
+                            </select>
+                            <textarea class="form-control" rows="3" placeholder="文本域示例"></textarea>
+                        </div>
+
+                        <div class="component-card">
+                            <h4>按钮组件</h4>
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <button class="action-btn primary">主要按钮</button>
+                                <button class="action-btn secondary">次要按钮</button>
+                                <button class="action-btn accent">强调按钮</button>
+                            </div>
+                        </div>
+
+                        <div class="component-card">
+                            <h4>表格组件</h4>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>姓名</th>
+                                        <th>年龄</th>
+                                        <th>城市</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-primary">张三</td>
+                                        <td class="text-secondary">25</td>
+                                        <td class="text-muted">北京</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-primary">李四</td>
+                                        <td class="text-secondary">30</td>
+                                        <td class="text-muted">上海</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="component-card">
+                            <h4>状态指示</h4>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <span class="text-success">✓ 操作成功</span>
+                                <span class="text-warning">⚠ 警告信息</span>
+                                <span class="text-danger">✗ 错误提示</span>
+                                <span class="text-info">ℹ 信息提示</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { textColorManager } from '../utils/textColorManager.js';
+
+        let currentPreset = 'default';
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSavedColors();
+        });
+
+        // 应用预设主题
+        function applyPreset(presetName) {
+            const colors = textColorManager.applyPreset(presetName);
+            if (colors) {
+                updateColorInputs(colors);
+                updateActivePreset(presetName);
+                currentPreset = presetName;
+            }
+        }
+
+        // 更新单个颜色
+        function updateColor(colorType, colorValue) {
+            // 验证颜色格式
+            if (/^#[0-9A-F]{6}$/i.test(colorValue) || /^#[0-9A-F]{3}$/i.test(colorValue)) {
+                textColorManager.setColor(colorType, colorValue);
+                updateColorInput(colorType, colorValue);
+                currentPreset = '自定义';
+                updateActivePreset('自定义');
+            }
+        }
+
+        // 更新颜色输入框
+        function updateColorInput(colorType, colorValue) {
+            const colorInput = document.getElementById(`color-${colorType}`);
+            const textInput = colorInput.nextElementSibling;
+
+            if (colorInput) colorInput.value = colorValue;
+            if (textInput && textInput.classList.contains('color-text')) {
+                textInput.value = colorValue;
+            }
+        }
+
+        // 更新所有颜色输入框
+        function updateColorInputs(colors) {
+            Object.keys(colors).forEach(colorType => {
+                updateColorInput(colorType, colors[colorType]);
+            });
+        }
+
+        // 更新激活的预设按钮
+        function updateActivePreset(presetName) {
+            document.querySelectorAll('.preset-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent === presetName) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // 重置颜色
+        function resetColors() {
+            textColorManager.resetToDefault();
+            const defaultColors = textColorManager.getDefaultColors();
+            updateColorInputs(defaultColors);
+            currentPreset = 'default';
+            updateActivePreset('default');
+        }
+
+        // 保存颜色配置
+        function saveColors() {
+            const colors = textColorManager.getDefaultColors();
+
+            // 从输入框获取当前颜色值
+            Object.keys(colors).forEach(colorType => {
+                const input = document.getElementById(`color-${colorType}`);
+                if (input) {
+                    colors[colorType] = input.value;
+                }
+            });
+
+            textColorManager.saveColors(colors);
+            alert('颜色配置已保存！');
+        }
+
+        // 加载保存的颜色
+        function loadSavedColors() {
+            const savedColors = textColorManager.loadColors();
+            if (savedColors) {
+                textColorManager.applyColors(savedColors);
+                updateColorInputs(savedColors);
+                currentPreset = '自定义';
+                updateActivePreset('自定义');
+            }
+        }
+
+        // 全局函数
+        window.applyPreset = applyPreset;
+        window.updateColor = updateColor;
+        window.resetColors = resetColors;
+        window.saveColors = saveColors;
+    </script>
+</body>
+</html>

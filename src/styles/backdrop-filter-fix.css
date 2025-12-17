@@ -1,0 +1,107 @@
+/**
+ * backdrop-filter 兼容性修复
+ * 解决 backdrop-filter 在不同浏览器中的兼容性问题
+ */
+
+/* 基础 backdrop-filter 兼容性修复 */
+.backdrop-filter-fix {
+  /* 为不支持 backdrop-filter 的浏览器提供降级方案 */
+  background-color: rgba(0, 0, 0, 0.7);
+
+  /* 标准语法 */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari 支持 */
+
+  /* 确保在支持的浏览器中显示透明背景 */
+  @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* 不同模糊程度的兼容性修复 */
+.backdrop-filter-blur-sm {
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  @supports (backdrop-filter: blur(4px)) or (-webkit-backdrop-filter: blur(4px)) {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.backdrop-filter-blur-md {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  @supports (backdrop-filter: blur(8px)) or (-webkit-backdrop-filter: blur(8px)) {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+.backdrop-filter-blur-lg {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* 针对 Firefox 的特殊处理 */
+@supports not (backdrop-filter: blur(10px)) {
+  .backdrop-filter-fix,
+  .backdrop-filter-blur-sm,
+  .backdrop-filter-blur-md,
+  .backdrop-filter-blur-lg {
+    /* Firefox 使用 box-shadow 作为降级方案 */
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* 确保内容在所有浏览器中都可见 */
+.backdrop-filter-fix *,
+.backdrop-filter-blur-sm *,
+.backdrop-filter-blur-md *,
+.backdrop-filter-blur-lg * {
+  position: relative;
+  z-index: 1;
+}
+
+/* 为移动设备优化 */
+@media (max-width: 768px) {
+  .backdrop-filter-fix,
+  .backdrop-filter-blur-sm,
+  .backdrop-filter-blur-md,
+  .backdrop-filter-blur-lg {
+    /* 在移动设备上减少模糊效果以提高性能 */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+  .backdrop-filter-fix,
+  .backdrop-filter-blur-sm,
+  .backdrop-filter-blur-md,
+  .backdrop-filter-blur-lg {
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/* 减少动画模式支持 */
+@media (prefers-reduced-motion: reduce) {
+  .backdrop-filter-fix,
+  .backdrop-filter-blur-sm,
+  .backdrop-filter-blur-md,
+  .backdrop-filter-blur-lg {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transition: none;
+  }
+}

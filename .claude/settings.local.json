@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev)",
+      "Bash(npm run build:*)",
+      "Bash(npm run serve:*)",
+      "Bash(npm run)",
+      "Bash(dir:*)",
+      "Bash(npm install:*)",
+      "Bash(node:*)",
+      "Bash(find:*)",
+      "Bash(curl:*)",
+      "Bash(python3:*)",
+      "Bash(npm run clean:*)",
+      "Bash(powershell:*)",
+      "Bash(npm cache clean:*)",
+      "Bash(pkill:*)",
+      "Bash(cat:*)",
+      "Bash(npx vue-tsc:*)",
+      "Bash(python:*)",
+      "Bash(npm run dev:*)",
+      "Bash(taskkill:*)",
+      "Bash(nul:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

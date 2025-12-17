@@ -1,0 +1,10 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 盾牌形状 -->
+  <path d="M16 1L4 6V16C4 22 16 29 16 29C16 29 28 22 28 16V6L16 1Z" fill="#ff6a00" stroke="#ff6a00" stroke-width="1" stroke-linejoin="round"/>
+
+  <!-- 内部白色区域 -->
+  <path d="M16 4L7 8V14C7 20 16 24 16 24C16 24 25 20 25 14V8L16 4Z" fill="white"/>
+
+  <!-- 勾选标记 -->
+  <path d="M11 16L14 19L21 12" stroke="#ff6a00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

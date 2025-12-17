@@ -1,0 +1,800 @@
+/* 引入阿里巴巴普惠体 */
+/* @import './assets/fonts/fonts.css'; */
+
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-text-auto-primary);
+    /* 背景图片通过 JavaScript 在 main.js 中设置 */
+}
+
+/* 全局字体设置 */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 0.5em;
+}
+
+/* 输入框和文本区域字体 */
+input, textarea, select {
+    font-family: inherit;
+}
+
+/* 全局链接样式 */
+a {
+    color: var(--color-text-auto-link);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-text-auto-accent);
+}
+
+/* 全局按钮样式 */
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-family: var(--font-family-base);
+    font-weight: var(--font-weight-normal);
+}
+
+/* 全局隐藏 sub-frame-error - 最高优先级 */
+#sub-frame-error {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  top: -99999px !important;
+  left: -99999px !important;
+  z-index: -99999 !important;
+  pointer-events: none !important;
+}
+
+/* 防止任何浏览器错误页面显示 */
+body > div[id*="sub-frame"],
+html > div[id*="sub-frame"],
+body > div[class*="sub-frame"],
+html > div[class*="sub-frame"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  top: -99999px !important;
+  left: -99999px !important;
+  z-index: -99999 !important;
+}
+
+/* 全局图片样式 */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 全局容器样式 - 使用统一断点 */
+.container {
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* 响应式设计 - 使用统一断点 */
+@media (max-width: 1200px) {
+    .container {
+        max-width: var(--container-lg);
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: var(--container-md);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        padding: 0 var(--spacing-sm);
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+}
+
+/* 滚动行为 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 选择文本样式 */
+::selection {
+    background-color: #007bff;
+    color: white;
+}
+
+/* 焦点样式 */
+*:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* 加载动画 */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* 确保主要页面区域背景透明，让body背景显示 */
+#app {
+    background: transparent;
+    min-height: 100vh;
+}
+
+.home-page {
+    background: transparent;
+}
+
+/* 主要section区域允许背景显示 */
+section {
+    background-color: transparent !important;
+}
+
+/* 工具类 */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mb-1 {
+    margin-bottom: 0.25rem;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.mb-5 {
+    margin-bottom: 3rem;
+}
+
+.mt-0 {
+    margin-top: 0;
+}
+
+.mt-1 {
+    margin-top: 0.25rem;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.mt-5 {
+    margin-top: 3rem;
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.p-1 {
+    padding: 0.25rem;
+}
+
+.p-2 {
+    padding: 0.5rem;
+}
+
+.p-3 {
+    padding: 1rem;
+}
+
+.p-4 {
+    padding: 1.5rem;
+}
+
+.p-5 {
+    padding: 3rem;
+}
+
+/* 显示/隐藏工具类 */
+.d-none {
+    display: none;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-inline {
+    display: inline;
+}
+
+.d-inline-block {
+    display: inline-block;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-grid {
+    display: grid;
+}
+
+/* 响应式显示/隐藏 - 使用统一断点 */
+
+/* 小屏幕下隐藏 (< 576px) */
+@media (max-width: 576px) {
+    .d-sm-none { display: none; }
+    .d-sm-block { display: block; }
+    .d-sm-flex { display: flex; }
+}
+
+/* 中屏幕下隐藏 (< 768px) */
+@media (max-width: 768px) {
+    .d-md-none { display: none; }
+    .d-md-block { display: block; }
+    .d-md-flex { display: flex; }
+}
+
+/* 大屏幕下隐藏 (< 992px) */
+@media (max-width: 992px) {
+    .d-lg-none { display: none; }
+    .d-lg-block { display: block; }
+    .d-lg-flex { display: flex; }
+}
+
+/* 桁面下显示 (>= 992px) */
+@media (min-width: 992px) {
+    .d-lg-up-block { display: block; }
+    .d-lg-up-flex { display: flex; }
+    .d-lg-up-none { display: none; }
+}
+
+/* 动画类 */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.5s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-right {
+    animation: slideInRight 0.5s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 卡片悬停效果 */
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 按钮悬停效果 */
+.btn-hover {
+    transition: all 0.3s ease;
+}
+
+.btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 渐变背景 */
+.gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-bg-blue {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+}
+
+.gradient-bg-green {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+}
+
+/* 阴影效果 */
+.shadow-sm {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.shadow-xl {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* 圆角 */
+.rounded {
+    border-radius: 0.25rem;
+}
+
+.rounded-sm {
+    border-radius: 0.125rem;
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.rounded-xl {
+    border-radius: 1rem;
+}
+
+.rounded-full {
+    border-radius: 50%;
+}
+
+/* 边框 */
+.border {
+    border: 1px solid #dee2e6;
+}
+
+.border-top {
+    border-top: 1px solid #dee2e6;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.border-left {
+    border-left: 1px solid #dee2e6;
+}
+
+.border-right {
+    border-right: 1px solid #dee2e6;
+}
+
+/* 颜色类 */
+.text-primary {
+    color: #007bff;
+}
+
+.text-secondary {
+    color: #6c757d;
+}
+
+.text-success {
+    color: #28a745;
+}
+
+.text-danger {
+    color: #dc3545;
+}
+
+.text-warning {
+    color: #ffc107;
+}
+
+.text-info {
+    color: #17a2b8;
+}
+
+.text-light {
+    color: #f8f9fa;
+}
+
+.text-dark {
+    color: #343a40;
+}
+
+.text-muted {
+    color: #6c757d;
+}
+
+.bg-primary {
+    background-color: #007bff;
+}
+
+.bg-secondary {
+    background-color: #6c757d;
+}
+
+.bg-success {
+    background-color: #28a745;
+}
+
+.bg-danger {
+    background-color: #dc3545;
+}
+
+.bg-warning {
+    background-color: #ffc107;
+}
+
+.bg-info {
+    background-color: #17a2b8;
+}
+
+.bg-light {
+    background-color: #f8f9fa;
+}
+
+.bg-dark {
+    background-color: #343a40;
+}
+
+/* ========== 移动端全局优化 ========== */
+
+/* 移动端全局间距压缩 */
+@media (max-width: 768px) {
+    section {
+        padding: 20px 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .container {
+        padding: 0 12px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    /* 优化触摸目标 */
+    button, a {
+        min-height: 44px;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 16px 0 !important;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    h3 {
+        font-size: 14px;
+    }
+}
+
+/* 超小屏幕 */
+@media (max-width: 360px) {
+    .container {
+        padding: 0 8px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    h2 {
+        font-size: 15px;
+    }
+}
+
+/* ========== 动态文本颜色工具类 ========== */
+
+/* 主要文本颜色 - 根据背景自动调整 */
+.text-auto-primary {
+    color: var(--color-text-auto-primary) !important;
+}
+
+/* 次要文本颜色 - 根据背景自动调整 */
+.text-auto-secondary {
+    color: var(--color-text-auto-secondary) !important;
+}
+
+/* 禁用文本颜色 - 根据背景自动调整 */
+.text-auto-disabled {
+    color: var(--color-text-auto-disabled) !important;
+}
+
+/* 链接颜色 - 根据背景自动调整 */
+.text-auto-link {
+    color: var(--color-text-auto-link) !important;
+}
+
+/* 强调色 - 根据背景自动调整 */
+.text-auto-accent {
+    color: var(--color-text-auto-accent) !important;
+}
+
+/* 自动对比度文本类 - 用于特定元素 */
+.auto-text {
+    color: var(--color-text-auto-primary);
+}
+
+.auto-text-secondary {
+    color: var(--color-text-auto-secondary);
+}
+
+.auto-text-muted {
+    color: var(--color-text-auto-disabled);
+}
+
+/* 表单元素自动颜色调整 */
+.form-control {
+    color: var(--color-text-auto-primary);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-text-auto-disabled);
+}
+
+.form-control:focus {
+    border-color: var(--color-text-auto-accent);
+    box-shadow: 0 0 0 0.2rem rgba(var(--color-text-auto-accent), 0.25);
+}
+
+.form-control::placeholder {
+    color: var(--color-text-auto-disabled);
+}
+
+/* 按钮自动颜色 */
+.btn-auto {
+    color: var(--color-text-auto-primary);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-text-auto-secondary);
+}
+
+.btn-auto:hover {
+    color: var(--color-text-auto-primary);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: var(--color-text-auto-primary);
+}
+
+.btn-auto-primary {
+    color: white;
+    background-color: var(--color-text-auto-accent);
+    border-color: var(--color-text-auto-accent);
+}
+
+.btn-auto-primary:hover {
+    background-color: color-mix(in srgb, var(--color-text-auto-accent) 80%, black);
+    border-color: color-mix(in srgb, var(--color-text-auto-accent) 80%, black);
+}
+
+/* 卡片自动颜色调整 */
+.card-auto {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--color-text-auto-disabled);
+    color: var(--color-text-auto-primary);
+}
+
+.card-auto .card-title {
+    color: var(--color-text-auto-primary);
+}
+
+.card-auto .card-text {
+    color: var(--color-text-auto-secondary);
+}
+
+/* 导航栏自动颜色 */
+.navbar-auto {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-text-auto-disabled);
+}
+
+.navbar-auto .navbar-brand,
+.navbar-auto .nav-link {
+    color: var(--color-text-auto-primary);
+}
+
+.navbar-auto .nav-link:hover {
+    color: var(--color-text-auto-accent);
+}
+
+/* 表格自动颜色 */
+.table-auto {
+    color: var(--color-text-auto-primary);
+}
+
+.table-auto th {
+    color: var(--color-text-auto-primary);
+    border-color: var(--color-text-auto-disabled);
+}
+
+.table-auto td {
+    color: var(--color-text-auto-secondary);
+    border-color: var(--color-text-auto-disabled);
+}
+
+/* 代码块自动颜色 */
+.code-auto {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-auto-primary);
+    border-color: var(--color-text-auto-disabled);
+}
+
+/* 警告框自动颜色 */
+.alert-auto {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-text-auto-secondary);
+    color: var(--color-text-auto-primary);
+}
+
+/* 模态框自动颜色 */
+.modal-auto .modal-content {
+    background-color: color-mix(in srgb, var(--background-color, #ffffff) 95%, transparent);
+    color: var(--color-text-auto-primary);
+}
+
+.modal-auto .modal-header,
+.modal-auto .modal-footer {
+    border-color: var(--color-text-auto-disabled);
+}
+
+/* 下拉菜单自动颜色 */
+.dropdown-auto .dropdown-menu {
+    background-color: color-mix(in srgb, var(--background-color, #ffffff) 98%, transparent);
+    border-color: var(--color-text-auto-disabled);
+    color: var(--color-text-auto-primary);
+}
+
+.dropdown-auto .dropdown-item {
+    color: var(--color-text-auto-primary);
+}
+
+.dropdown-auto .dropdown-item:hover {
+    background-color: rgba(var(--color-text-auto-accent), 0.1);
+    color: var(--color-text-auto-accent);
+}
+
+/* 工具提示自动颜色 */
+.tooltip-auto .tooltip-inner {
+    background-color: var(--color-text-auto-primary);
+    color: var(--color-text-auto-primary === '#000000' ? '#ffffff' : '#000000');
+}
+
+/* 进度条自动颜色 */
+.progress-auto .progress-bar {
+    background-color: var(--color-text-auto-accent);
+}
+
+/* 分页自动颜色 */
+.pagination-auto .page-link {
+    color: var(--color-text-auto-primary);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-text-auto-disabled);
+}
+
+.pagination-auto .page-link:hover {
+    color: var(--color-text-auto-accent);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.pagination-auto .page-item.active .page-link {
+    background-color: var(--color-text-auto-accent);
+    border-color: var(--color-text-auto-accent);
+    color: white;
+}
+
+/* 面包屑自动颜色 */
+.breadcrumb-auto .breadcrumb-item {
+    color: var(--color-text-auto-secondary);
+}
+
+.breadcrumb-auto .breadcrumb-item a {
+    color: var(--color-text-auto-link);
+}
+
+.breadcrumb-auto .breadcrumb-item.active {
+    color: var(--color-text-auto-primary);
+}
+
+
+
+
+
+

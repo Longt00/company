@@ -1,0 +1,52 @@
+
+> enterprise-website@1.0.0 build
+> vite build
+
+[36mvite v4.5.14 [32mbuilding for production...[36m[39m
+transforming...
+[32m✓[39m 124 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32massets/verified-badge-15cab858.svg                       [39m[1m[2m    0.53 kB[22m[1m[22m[2m │ gzip:  0.34 kB[22m
+[2mdist/[22m[32mindex.html                                               [39m[1m[2m    0.63 kB[22m[1m[22m[2m │ gzip:  0.40 kB[22m
+[2mdist/[22m[32massets/Wecan-d4722a34.jpg                                [39m[1m[2m    7.67 kB[22m[1m[22m
+[2mdist/[22m[32massets/16-758742ec.jpg                                   [39m[1m[2m   17.42 kB[22m[1m[22m
+[2mdist/[22m[32massets/logo-1e70101e.png                                 [39m[1m[2m   17.90 kB[22m[1m[22m
+[2mdist/[22m[32massets/14-0f826131.jpg                                   [39m[1m[2m   18.00 kB[22m[1m[22m
+[2mdist/[22m[32massets/QR code-3a43fde8.png                              [39m[1m[2m   18.19 kB[22m[1m[22m
+[2mdist/[22m[32massets/15-60e9ab8b.jpg                                   [39m[1m[2m   24.23 kB[22m[1m[22m
+[2mdist/[22m[32massets/18-846102b0.jpg                                   [39m[1m[2m   40.87 kB[22m[1m[22m
+[2mdist/[22m[32massets/19-2851de63.jpg                                   [39m[1m[2m   59.01 kB[22m[1m[22m
+[2mdist/[22m[32massets/17-ccf39fa6.png                                   [39m[1m[2m   69.57 kB[22m[1m[22m
+[2mdist/[22m[32massets/13-75821e57.jpg                                   [39m[1m[2m   87.50 kB[22m[1m[22m
+[2mdist/[22m[32massets/20-6c180a05.jpg                                   [39m[1m[2m  114.29 kB[22m[1m[22m
+[2mdist/[22m[32massets/background-vedio-b34e8c03.jpg                     [39m[1m[2m  123.15 kB[22m[1m[22m
+[2mdist/[22m[32massets/4-ac6385a1.png                                    [39m[1m[2m  146.81 kB[22m[1m[22m
+[2mdist/[22m[32massets/8-9f51a7a2.png                                    [39m[1m[2m  174.49 kB[22m[1m[22m
+[2mdist/[22m[32massets/Customization process-48c5a3ba.jpg                [39m[1m[2m  175.33 kB[22m[1m[22m
+[2mdist/[22m[32massets/3-d7c6b701.png                                    [39m[1m[2m  186.63 kB[22m[1m[22m
+[2mdist/[22m[32massets/7-2326ed50.png                                    [39m[1m[2m  190.96 kB[22m[1m[22m
+[2mdist/[22m[32massets/10-c2ddf8ff.png                                   [39m[1m[2m  211.74 kB[22m[1m[22m
+[2mdist/[22m[32massets/5-ed295455.png                                    [39m[1m[2m  212.67 kB[22m[1m[22m
+[2mdist/[22m[32massets/6-9e747881.png                                    [39m[1m[2m  230.65 kB[22m[1m[22m
+[2mdist/[22m[32massets/carousel-1-5633b801.jpg                           [39m[1m[2m  232.62 kB[22m[1m[22m
+[2mdist/[22m[32massets/9-76989d4f.png                                    [39m[1m[2m  236.33 kB[22m[1m[22m
+[2mdist/[22m[32massets/Reasons-1882b7ec.jpg                              [39m[1m[2m  237.42 kB[22m[1m[22m
+[2mdist/[22m[32massets/1-f08afae6.png                                    [39m[1m[2m  265.70 kB[22m[1m[22m
+[2mdist/[22m[32massets/carousel-2-bf07c2dd.jpg                           [39m[1m[2m  304.72 kB[22m[1m[22m
+[2mdist/[22m[32massets/carousel-3-3adabd3a.jpg                           [39m[1m[2m  310.55 kB[22m[1m[22m
+[2mdist/[22m[32massets/Personalized customization services-7565cc6d.jpg  [39m[1m[2m  331.39 kB[22m[1m[22m
+[2mdist/[22m[32massets/2-cf4ed45e.png                                    [39m[1m[2m  537.03 kB[22m[1m[22m
+[2mdist/[22m[32massets/background-footer-556467d9.jpg                    [39m[1m[2m1,035.88 kB[22m[1m[22m
+[2mdist/[22m[32massets/2-d7ed4868.png                                    [39m[1m[2m1,054.71 kB[22m[1m[22m
+[2mdist/[22m[32massets/background-info-5d9d8611.jpg                      [39m[1m[2m1,075.17 kB[22m[1m[22m
+[2mdist/[22m[32massets/11-1b5240b7.png                                   [39m[1m[2m1,104.91 kB[22m[1m[22m
+[2mdist/[22m[32massets/1-1d5e80ee.png                                    [39m[1m[2m1,119.33 kB[22m[1m[22m
+[2mdist/[22m[32massets/12-f6b2f4fc.png                                   [39m[1m[2m1,336.50 kB[22m[1m[22m
+[2mdist/[22m[32massets/3-25cb62f2.png                                    [39m[1m[2m1,372.76 kB[22m[1m[22m
+[2mdist/[22m[32massets/background-header-5e43cfa3.jpg                    [39m[1m[2m1,534.24 kB[22m[1m[22m
+[2mdist/[22m[32massets/background-2aa3099a.jpg                           [39m[1m[2m8,693.99 kB[22m[1m[22m
+[2mdist/[22m[35massets/index-08e824b0.css                                [39m[1m[2m  123.72 kB[22m[1m[22m[2m │ gzip: 20.00 kB[22m
+[2mdist/[22m[36massets/background-53a62453.js                            [39m[1m[2m    0.09 kB[22m[1m[22m[2m │ gzip:  0.11 kB[22m
+[2mdist/[22m[36massets/index-63d599bd.js                                 [39m[1m[2m  257.81 kB[22m[1m[22m[2m │ gzip: 84.67 kB[22m
+[32m✓ built in 1.60s[39m

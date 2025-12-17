@@ -1,0 +1,42 @@
+/* 阿里巴巴普惠体字体定义 */
+
+/* 阿里巴巴普惠体 2.0 - Regular */
+@font-face {
+  font-family: 'Alibaba PuHuiTi';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Alibaba PuHuiTi Regular'),
+       local('AlibabaPuHuiTi-Regular'),
+       local('阿里巴巴普惠体 Regular'),
+       url('./AlibabaPuHuiTi-Regular.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* 阿里巴巴普惠体 2.0 - Bold */
+@font-face {
+  font-family: 'Alibaba PuHuiTi';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Alibaba PuHuiTi Bold'),
+       local('AlibabaPuHuiTi-Bold'),
+       local('阿里巴巴普惠体 Bold'),
+       url('./AlibabaPuHuiTi-Bold.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* 字体变量定义 */
+:root {
+  --font-family-base: 'Alibaba PuHuiTi', 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', 'Hiragino Sans GB', 'Source Han Sans SC', 'Noto Sans CJK SC', 'WenQuanYi Micro Hei', sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+}
+
+/* 全局字体应用 */
+html, body {
+  font-family: var(--font-family-base);
+}
+
+/* 确保所有元素都使用阿里巴巴普惠体 */
+*, *::before, *::after {
+  font-family: inherit;
+}

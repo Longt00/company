@@ -1,0 +1,155 @@
+/**
+ * 全局 CSS 变量和响应式断点配置
+ * 统一整个项目的响应式设计标准
+ */
+
+:root {
+  /* ========== 响应式断点 ========== */
+  /* 使用 Bootstrap/Tailwind 标准断点 */
+  --breakpoint-xs: 0px;       /* 超小屏 - 小手机 */
+  --breakpoint-sm: 576px;     /* 小屏 - 大手机 */
+  --breakpoint-md: 768px;     /* 中屏 - 平板 */
+  --breakpoint-lg: 992px;     /* 大屏 - 小电脑 */
+  --breakpoint-xl: 1200px;    /* 超大屏 - 桌面 */
+  --breakpoint-xxl: 1400px;   /* 超超大屏 - 大显示器 */
+
+  /* ========== 容器最大宽度 ========== */
+  --container-sm: 540px;
+  --container-md: 720px;
+  --container-lg: 960px;
+  --container-xl: 1140px;
+  --container-xxl: 1320px;
+
+  /* ========== 间距系统 ========== */
+  --spacing-xs: 0.25rem;    /* 4px */
+  --spacing-sm: 0.5rem;     /* 8px */
+  --spacing-md: 1rem;       /* 16px */
+  --spacing-lg: 1.5rem;     /* 24px */
+  --spacing-xl: 2rem;       /* 32px */
+  --spacing-2xl: 3rem;      /* 48px */
+  --spacing-3xl: 4rem;      /* 64px */
+
+  /* ========== 字体大小系统（响应式） ========== */
+  --font-size-xs: clamp(0.75rem, 1.5vw, 0.875rem);    /* 12-14px */
+  --font-size-sm: clamp(0.875rem, 1.8vw, 1rem);       /* 14-16px */
+  --font-size-base: clamp(1rem, 2vw, 1.125rem);       /* 16-18px */
+  --font-size-lg: clamp(1.125rem, 2.5vw, 1.25rem);    /* 18-20px */
+  --font-size-xl: clamp(1.25rem, 3vw, 1.5rem);        /* 20-24px */
+  --font-size-2xl: clamp(1.5rem, 3.5vw, 2rem);        /* 24-32px */
+  --font-size-3xl: clamp(2rem, 4vw, 2.5rem);          /* 32-40px */
+  --font-size-4xl: clamp(2.5rem, 5vw, 3.5rem);        /* 40-56px */
+
+  /* ========== 字体粗细 ========== */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* ========== 行高 ========== */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  --line-height-loose: 2;
+
+  /* ========== 圆角 ========== */
+  --radius-sm: 0.25rem;     /* 4px */
+  --radius-md: 0.5rem;      /* 8px */
+  --radius-lg: 0.75rem;     /* 12px */
+  --radius-xl: 1rem;        /* 16px */
+  --radius-2xl: 1.5rem;     /* 24px */
+  --radius-full: 9999px;    /* 完全圆形 */
+
+  /* ========== 阴影 ========== */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* ========== 颜色系统 ========== */
+  --color-primary: #ff6a00;
+  --color-primary-hover: #e55a00;
+  --color-primary-light: #fff4ed;
+
+  --color-secondary: #6c757d;
+  --color-success: #28a745;
+  --color-danger: #dc3545;
+  --color-warning: #ffc107;
+  --color-info: #17a2b8;
+
+  /* ========== 动态文本颜色系统 ========== */
+  /* 这些颜色会根据背景色自动调整 */
+  --color-text-primary: #333;
+  --color-text-secondary: #666;
+  --color-text-muted: #999;
+  --color-text-inverse: #fff;
+
+  /* 自动计算的文本颜色变量 */
+  --color-text-auto-primary: #333;  /* 主要文本颜色 - 将由 JS 动态计算 */
+  --color-text-auto-secondary: #666;  /* 次要文本颜色 - 将由 JS 动态计算 */
+  --color-text-auto-disabled: #999;  /* 禁用文本颜色 - 将由 JS 动态计算 */
+  --color-text-auto-link: #1976d2;   /* 链接颜色 - 将由 JS 动态调整 */
+  --color-text-auto-accent: #ff6a00; /* 强调色 - 将由 JS 动态调整 */
+
+  /* 背景颜色变量 */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8f9fa;
+  --color-bg-tertiary: #e9ecef;
+
+  /* 边框颜色 */
+  --color-border: #dee2e6;
+  --color-border-light: #f1f3f5;
+
+  /* ========== 背景类型变量 ========== */
+  --background-type: 'solid';  /* 'solid' | 'gradient' | 'image' */
+  --background-color: #ffffff;
+  --background-gradient-start: #ffffff;
+  --background-gradient-end: #f8f9fa;
+  --background-gradient-direction: 45deg;
+
+  /* ========== Z-index 层级 ========== */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-toast: 1080;
+
+  /* ========== 过渡动画 ========== */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* ========== 移动端触摸优化 ========== */
+  --touch-target-min: 44px;  /* iOS/Android 最小触摸目标 */
+}
+
+/* ========== 响应式字体大小基准 ========== */
+/* 移动端基准字体 */
+html {
+  font-size: 16px; /* 基准 */
+}
+
+/* 小手机 - 稍微减小 */
+@media (max-width: 375px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* 平板 - 保持 */
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* 桌面 - 稍微增大 */
+@media (min-width: 1200px) {
+  html {
+    font-size: 18px;
+  }
+}
